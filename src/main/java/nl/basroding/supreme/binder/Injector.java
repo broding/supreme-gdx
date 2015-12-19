@@ -24,14 +24,27 @@ public class Injector implements IInjector {
             for(Annotation annotation : field.getDeclaredAnnotations()){
                 if(annotation.annotationType() == Inject.class){
                     IBinding binding = binder.getBinding(field.getType());
-                    try {
-                        Object value = factory.create((IInjectionBinding)binding);
-                        field.set(target, value);
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
+                    inject(target, field, (IInjectionBinding)binding);
                 }
             }
+        }
+    }
+
+    private void inject(Object target, Field field, IInjectionBinding binding){
+        Object value = null;
+        if(binding.getValue() == null || binding.getValue().getClass() == Class.class){
+            value = factory.create((IInjectionBinding)binding);
+            if(binding.getInjectionBindingType() == InjectionBindingType.SINGLETON){
+                binding.setValue(value);
+            }
+        }else{
+            value = binding.getValue();
+        }
+
+        try {
+            field.set(target, value);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
     }
 }

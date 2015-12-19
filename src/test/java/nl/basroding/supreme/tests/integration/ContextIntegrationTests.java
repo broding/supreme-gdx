@@ -131,4 +131,58 @@ public class ContextIntegrationTests {
         Assert.assertNotNull(worldView.world);
     }
 
+    @Test
+    public void context_injectWithNoSingleton_viewHasNewInstanceInjected(){
+        WorldView worldViewOne = new WorldView();
+        WorldView worldViewTwo = new WorldView();
+
+        Context context = new Context(){
+
+            @Override
+            public void mapSignals() {
+                injectionBinder.bindInjection(IWorld.class).toInjection(World.class);
+            }
+
+            @Override
+            public void setupViews() {
+                addView(worldViewOne);
+                addView(worldViewTwo);
+            }
+
+            @Override
+            public void destroyViews() {
+
+            }
+        };
+
+        Assert.assertNotEquals(worldViewOne.world, worldViewTwo.world);
+    }
+
+    @Test
+    public void context_injectToSingleton_viewSameInstanceInjected(){
+        WorldView worldViewOne = new WorldView();
+        WorldView worldViewTwo = new WorldView();
+
+        Context context = new Context(){
+
+            @Override
+            public void mapSignals() {
+                injectionBinder.bindInjection(IWorld.class).toInjection(World.class).toSingleton();
+            }
+
+            @Override
+            public void setupViews() {
+                addView(worldViewOne);
+                addView(worldViewTwo);
+            }
+
+            @Override
+            public void destroyViews() {
+
+            }
+        };
+
+        Assert.assertEquals(worldViewOne.world, worldViewTwo.world);
+    }
+
 }

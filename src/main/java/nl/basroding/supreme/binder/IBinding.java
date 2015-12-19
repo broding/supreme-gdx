@@ -5,4 +5,5 @@ public interface IBinding {
     IBinding to(Object value);
     Class<?> getKey();
     Object getValue();
+    void setValue(Object value);
 }
