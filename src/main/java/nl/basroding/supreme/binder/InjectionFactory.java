@@ -12,7 +12,7 @@ public class InjectionFactory implements IInjectionFactory {
         }else if(binding.getValue().getClass() == Class.class){
             return createInstance(binding);
         }else{
-            return null;
+            return binding.getValue();
         }
 
     }
@@ -24,6 +24,11 @@ public class InjectionFactory implements IInjectionFactory {
         }else{
             classType = (Class)binding.getValue();
         }
+
+        if(classType.isInterface()){
+            throw new InjectionException("Can not create instance of " + binding.getKey().toString());
+        }
+
         try {
             return classType.newInstance();
         } catch (InstantiationException e) {
