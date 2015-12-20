@@ -4,8 +4,10 @@ public class Binding implements IBinding {
 
     private Class<?> key;
     private Object value;
+    private String name;
 
     public Binding(){
+        name = new String();
     }
 
     @Override
@@ -33,5 +35,16 @@ public class Binding implements IBinding {
     @Override
     public void setValue(Object value) {
         this.value = value;
+    }
+
+    @Override
+    public IBinding toName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }

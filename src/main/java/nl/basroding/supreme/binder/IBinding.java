@@ -4,6 +4,8 @@ public interface IBinding {
     IBinding bind(Class<?> classType);
     IBinding to(Object value);
     Class<?> getKey();
-    Object getValue();
+    <T> T getValue();
     void setValue(Object value);
+    IBinding toName(String name);
+    String getName();
 }

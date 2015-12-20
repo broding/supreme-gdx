@@ -2,12 +2,14 @@ package nl.basroding.supreme;
 
 public class View implements IView {
 
-    public View(){
+    @Override
+    public void onRegister() {
 
     }
 
-    public void onRegister(){
-
+    @Override
+    public void onDestroy() {
+        
     }
 
 }

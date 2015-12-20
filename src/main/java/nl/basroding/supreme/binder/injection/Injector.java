@@ -24,11 +24,10 @@ public class Injector implements IInjector {
     private void performSetterInjection(Object target){
         Class targetClass = target.getClass();
         for(Field field : targetClass.getFields()){
-            for(Annotation annotation : field.getDeclaredAnnotations()){
-                if(annotation.annotationType() == Inject.class){
-                    IBinding binding = binder.getBinding(field.getType());
-                    inject(target, field, (IInjectionBinding)binding);
-                }
+            Inject injectAnnotation = field.getAnnotation(Inject.class);
+            if(injectAnnotation != null){
+                IInjectionBinding binding = (IInjectionBinding)binder.getBinding(field.getType(), injectAnnotation.value());
+                inject(target, field, binding);
             }
         }
     }
