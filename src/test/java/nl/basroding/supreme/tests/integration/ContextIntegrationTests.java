@@ -1,7 +1,7 @@
 package nl.basroding.supreme.tests.integration;
 
 import nl.basroding.supreme.Context;
-import nl.basroding.supreme.binder.InjectionException;
+import nl.basroding.supreme.binder.injection.InjectionException;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;

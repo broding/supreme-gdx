@@ -1,4 +1,6 @@
-package nl.basroding.supreme.binder;
+package nl.basroding.supreme.binder.injection;
+
+import nl.basroding.supreme.binder.IBinder;
 
 public interface IInjectionBinder extends IBinder {
     void inject(Object target);

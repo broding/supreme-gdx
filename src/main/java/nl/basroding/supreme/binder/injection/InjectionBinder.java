@@ -1,4 +1,7 @@
-package nl.basroding.supreme.binder;
+package nl.basroding.supreme.binder.injection;
+
+import nl.basroding.supreme.binder.Binder;
+import nl.basroding.supreme.binder.IBinding;
 
 public class InjectionBinder extends Binder implements IInjectionBinder {
 

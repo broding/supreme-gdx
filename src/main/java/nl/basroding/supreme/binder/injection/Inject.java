@@ -1,4 +1,4 @@
-package nl.basroding.supreme.binder;
+package nl.basroding.supreme.binder.injection;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

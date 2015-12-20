@@ -1,4 +1,7 @@
-package nl.basroding.supreme.binder;
+package nl.basroding.supreme.binder.injection;
+
+import nl.basroding.supreme.binder.IBinder;
+import nl.basroding.supreme.binder.IBinding;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

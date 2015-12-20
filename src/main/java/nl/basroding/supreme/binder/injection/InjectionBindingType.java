@@ -1,4 +1,4 @@
-package nl.basroding.supreme.binder;
+package nl.basroding.supreme.binder.injection;
 
 public enum InjectionBindingType {
     VALUE,

@@ -1,7 +1,7 @@
 package nl.basroding.supreme;
 
-import nl.basroding.supreme.binder.IInjectionBinder;
-import nl.basroding.supreme.binder.InjectionBinder;
+import nl.basroding.supreme.binder.injection.IInjectionBinder;
+import nl.basroding.supreme.binder.injection.InjectionBinder;
 
 import java.util.ArrayList;
 import java.util.Collection;

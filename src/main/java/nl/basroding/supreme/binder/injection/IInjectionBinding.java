@@ -1,4 +1,6 @@
-package nl.basroding.supreme.binder;
+package nl.basroding.supreme.binder.injection;
+
+import nl.basroding.supreme.binder.IBinding;
 
 public interface IInjectionBinding extends IBinding {
     IInjectionBinding toSingleton();
